@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 
 GENDERS = (
-  (0, 'Male'),
-  (1, 'Female'),
+  ('Masculino', 'Masculino'),
+  ('Femenino', 'Femenino'),
 )
 
 class Animal(models.Model):
@@ -13,8 +13,6 @@ class Animal(models.Model):
   race = models.CharField(max_length=20)
   date_founded = models.DateField()
   place_founded = models.CharField(max_length=200)
-  photo = models.CharField(max_length=5)
+  photo = models.ImageField(blank=True, upload_to='img/')
   species = models.CharField(max_length=120)
-  gender = models.PositiveIntegerField(choices=GENDERS, default=0)
-
-
+  gender = models.CharField(max_length=10, choices=GENDERS, default=0)

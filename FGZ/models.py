@@ -16,3 +16,10 @@ class Animal(models.Model):
   photo = models.ImageField(blank=True, upload_to='img/')
   species = models.CharField(max_length=120)
   gender = models.PositiveIntegerField(choices=GENDERS, default=0)
+
+class CAP(models.Model):
+  id_cap = models.AutoField(primary_key=True)
+  nameC = models.CharField(max_length=20)
+  last_nameC = models.CharField(max_length=20)
+  age = models.CharField(max_length=20)
+  address = models.CharField(max_length=120)

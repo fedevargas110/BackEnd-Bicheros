@@ -13,7 +13,7 @@ class Animal(models.Model):
   race = models.CharField(max_length=20, blank=True, null=True)
   date_founded = models.DateField(blank=True, null=True)
   place_founded = models.CharField(max_length=200, blank=True, null=True)
-  photo = models.ImageField(blank=True, upload_to='img/')
+  photo = models.ImageField(blank=True, upload_to='img/', null=True)
   species = models.CharField(max_length=120, blank=True, null=True)
   gender = models.PositiveIntegerField(choices=GENDERS, default=0, blank=True, null=True)
 

@@ -9,13 +9,17 @@ GENDERS = (
 
 class Animal(models.Model):
   id_animal = models.AutoField(primary_key=True)
-  name = models.CharField(max_length=20)
-  race = models.CharField(max_length=20)
-  date_founded = models.DateField()
-  place_founded = models.CharField(max_length=200)
+  name = models.CharField(max_length=20, blank=True, null=True)
+  race = models.CharField(max_length=20, blank=True, null=True)
+  date_founded = models.DateField(blank=True, null=True)
+  place_founded = models.CharField(max_length=200, blank=True, null=True)
   photo = models.ImageField(blank=True, upload_to='img/')
-  species = models.CharField(max_length=120)
-  gender = models.PositiveIntegerField(choices=GENDERS, default=0)
+  species = models.CharField(max_length=120, blank=True, null=True)
+  gender = models.PositiveIntegerField(choices=GENDERS, default=0, blank=True, null=True)
+
+  def __str__(self):
+    return str(self.id_animal) + ' ' + str(self.name)
+
 
 class CAP(models.Model):
   id_cap = models.AutoField(primary_key=True)

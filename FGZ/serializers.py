@@ -13,8 +13,9 @@ class AnimalSerializer(serializers.ModelSerializer):
 
   def create(self, validated_data):
     return Animal.objects.create(**validated_data)
-
-  def update(self, instance, validated_data):
+  
+"""  def update(self, instance, validated_data):
     instance.id_animal = validated_data.get('ID', instance.id_animal)
     instance.save()
-    return instance
+    return instance"""
+    

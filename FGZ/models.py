@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator
 
 # Create your models here.
 
@@ -27,3 +28,7 @@ class CAP(models.Model):
   last_nameC = models.CharField(max_length=20)
   age = models.CharField(max_length=20)
   address = models.CharField(max_length=120)
+
+class Ingreso(models.Model):
+  date = models.DateField(blank=True, null=True)
+  amount_to_enter = models.IntegerField(validators=[MaxValueValidator(99999999999999999999)]) 

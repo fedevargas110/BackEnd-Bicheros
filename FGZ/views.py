@@ -1,5 +1,5 @@
-from FGZ.models import Animal, Ingreso
-from FGZ.serializers import AnimalSerializer, IngresoSerializer
+from FGZ.models import Animal, Monto
+from FGZ.serializers import AnimalSerializer, MontoSerializer
 from rest_framework import viewsets, permissions, status
 from django.shortcuts import redirect
 from rest_framework.decorators import action, api_view
@@ -13,6 +13,6 @@ class AnimalViewSet(viewsets.ModelViewSet):
   filter_backends = (filters.SearchFilter,)
   search_fields = ('name',)
 
-class IngresoViewSet(viewsets.ModelViewSet):
-  queryset = Ingreso.objects.all()
-  serializer_class = IngresoSerializer
+class MontoViewSet(viewsets.ModelViewSet):
+  queryset = Monto.objects.all()
+  serializer_class = MontoSerializer

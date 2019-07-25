@@ -8,7 +8,7 @@ from django.conf.urls.static import static
 
 router = SimpleRouter()
 router.register(r'animals', AnimalViewSet)
-router.register(r'ingreso_monto', IngresoViewSet)
+router.register(r'monto', MontoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

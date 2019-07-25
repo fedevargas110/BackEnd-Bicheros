@@ -1,11 +1,16 @@
 from django.db import models
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxLengthValidator
 
 # Create your models here.
 
 GENDERS = (
   (0, 'Masculino'),
   (1, 'Femenino'),
+)
+
+TIPO = (
+  (0, 'Ingreso'),
+  (1, 'Gasto'),
 )
 
 class Animal(models.Model):
@@ -29,6 +34,7 @@ class CAP(models.Model):
   age = models.CharField(max_length=20)
   address = models.CharField(max_length=120)
 
-class Ingreso(models.Model):
+class Monto(models.Model):
   date = models.DateField(blank=True, null=True)
-  amount_to_enter = models.IntegerField(validators=[MaxValueValidator(99999999999999999999)]) 
+  amount = models.TextField(validators=[MaxLengthValidator(20)], null=True)
+  tipo = models.PositiveIntegerField(choices=TIPO, default=0, blank=True, null=True)

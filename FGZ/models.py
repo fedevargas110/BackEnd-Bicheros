@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import MaxLengthValidator
+from django.core.validators import MaxValueValidator
 
 # Create your models here.
 
@@ -36,5 +36,5 @@ class CAP(models.Model):
 
 class Monto(models.Model):
   date = models.DateField(blank=True, null=True)
-  amount = models.TextField(validators=[MaxLengthValidator(20)], null=True)
+  amount = models.IntegerField(validators=[MaxValueValidator(9999999999)], null=True)
   tipo = models.PositiveIntegerField(choices=TIPO, default=0, blank=True, null=True)

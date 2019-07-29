@@ -1,5 +1,5 @@
-from FGZ.models import Animal, Monto
-from FGZ.serializers import AnimalSerializer, MontoSerializer
+from FGZ.models import Animal, Monto, CAP
+from FGZ.serializers import AnimalSerializer, MontoSerializer, CAPSerializer
 from rest_framework import viewsets, permissions, status
 from django.shortcuts import redirect
 from rest_framework.decorators import action, api_view
@@ -16,3 +16,7 @@ class AnimalViewSet(viewsets.ModelViewSet):
 class MontoViewSet(viewsets.ModelViewSet):
   queryset = Monto.objects.all()
   serializer_class = MontoSerializer
+
+class CAPViewSet(viewsets.ModelViewSet):
+  queryset = CAP.objects.all()
+  serializer_class = CAPSerializer

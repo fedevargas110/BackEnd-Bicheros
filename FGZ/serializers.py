@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from FGZ.models import Animal, Monto
+from FGZ.models import Animal, Monto, CAP
 
 class AnimalSerializer(serializers.ModelSerializer):
   class Meta:
@@ -28,3 +28,8 @@ class MontoSerializer(serializers.ModelSerializer):
     troll = super().to_representation(instance)
     troll['tipo'] = instance.get_tipo_display()
     return troll
+
+class CAPSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = CAP
+    fields = '__all__'

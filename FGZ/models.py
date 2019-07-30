@@ -36,5 +36,5 @@ class CAP(models.Model):
 
 class Monto(models.Model):
   date = models.DateField(blank=True, null=True)
-  amount = models.IntegerField(validators=[MaxValueValidator(9999999999)], null=True)
+  amount = models.FloatField(validators=[MaxValueValidator(9999999999)], blank=True, null=True)
   tipo = models.PositiveIntegerField(choices=TIPO, default=0, blank=True, null=True)

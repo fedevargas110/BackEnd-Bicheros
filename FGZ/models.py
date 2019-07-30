@@ -41,3 +41,6 @@ class Monto(models.Model):
   date = models.DateField(blank=True, null=True)
   amount = models.FloatField(validators=[MaxValueValidator(9999999999)], blank=True, null=True)
   tipo = models.PositiveIntegerField(choices=TIPO, default=0, blank=True, null=True)
+  
+  def __str__(self):
+    return 'Fecha: '+ str(self.date) + ' Se genero ' + str(self.amount) + ' de ' + str(self.tipo)

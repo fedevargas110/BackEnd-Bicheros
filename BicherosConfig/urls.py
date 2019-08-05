@@ -15,7 +15,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('auth/', include('rest_auth.urls')),
-#    path('registration/', include('rest_auth.registration.urls')),
+    path('registration/', include('rest_auth.registration.urls')),
 ]
 
 if settings.DEBUG:

@@ -1,5 +1,5 @@
-from FGZ.models import Animal, Monto, CAP
-from FGZ.serializers import AnimalSerializer, MontoSerializer, CAPSerializer
+from FGZ.models import Animal, Monto, CAP, Donacion
+from FGZ.serializers import AnimalSerializer, MontoSerializer, CAPSerializer, DonacionSerializer
 from rest_framework import viewsets, permissions, status
 from django.shortcuts import redirect
 from rest_framework.decorators import action, api_view
@@ -28,3 +28,12 @@ class CAPViewSet(viewsets.ModelViewSet):
   authentication_classes = (TokenAuthentication, SessionAuthentication)
   queryset = CAP.objects.all()
   serializer_class = CAPSerializer
+
+class DonacionViewSet(viewsets.ModelViewSet):
+  permission_classes = (IsAuthenticated,)
+  authentication_classes = (TokenAuthentication, SessionAuthentication)
+  queryset = Donacion.objects.all()
+  serializer_class = DonacionSerializer
+  
+  filter_backends = (filters.SearchFilter,)
+  search_fields = ('type_of_donation',)

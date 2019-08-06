@@ -10,6 +10,7 @@ router = SimpleRouter()
 router.register(r'animals', AnimalViewSet)
 router.register(r'monto', MontoViewSet)
 router.register(r'cap', CAPViewSet)
+router.register(r'donacion', DonacionViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -12,8 +12,7 @@ TIPO = (
   (0, 'Ingreso'),
   (1, 'Gasto'),
 )
-#AIzaSyAOaQmsL3KhI6QAGlQ3oUxGvcSwRuSDVmY
-#AIzaSyBGGI2y7_Vcp_guzHuUZAI-e3Bbthh6nEk
+
 DONATION = (
   (0, 'comida de gato'),
   (1, 'comida de perro'),

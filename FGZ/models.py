@@ -12,7 +12,8 @@ TIPO = (
   (0, 'Ingreso'),
   (1, 'Gasto'),
 )
-
+#AIzaSyAOaQmsL3KhI6QAGlQ3oUxGvcSwRuSDVmY
+#AIzaSyBGGI2y7_Vcp_guzHuUZAI-e3Bbthh6nEk
 DONATION = (
   (0, 'comida de gato'),
   (1, 'comida de perro'),
@@ -25,7 +26,7 @@ class CAP(models.Model):
   nameC = models.CharField(max_length=20, blank=True, null=True)
   last_nameC = models.CharField(max_length=20, blank=True, null=True)
   email = models.EmailField(max_length=70, blank=True)
-  age = models.CharField(max_length=20, blank=True, null=True)
+  date_of_birth = models.DateField(blank=True, null=True)
   address = models.CharField(max_length=120, blank=True, null=True)
   telefono = models.CharField(max_length=30, blank=True, null=True)
   
@@ -62,4 +63,3 @@ class Donacion(models.Model):
 
   def __str__(self):  
     return '{}, {}'.format(self.description, self.date)
-  

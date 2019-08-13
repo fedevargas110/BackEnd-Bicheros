@@ -11,6 +11,7 @@ router.register(r'animals', AnimalViewSet)
 router.register(r'monto', MontoViewSet)
 router.register(r'cap', CAPViewSet)
 router.register(r'donacion', DonacionViewSet)
+router.register(r'veterinaria', VeterinariaViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

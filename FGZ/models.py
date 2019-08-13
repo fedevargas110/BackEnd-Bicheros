@@ -20,6 +20,16 @@ DONATION = (
   (3, 'otros'),
 )
 
+class Veterinaria(models.Model):
+  id_veterinaria = models.AutoField(primary_key=True)
+  name = models.CharField(max_length=20, blank=True, null=True)
+  address = models.CharField(max_length=20, blank=True, null=True)
+  phone = models.CharField(max_length=30, blank=True, null=True)
+  email = models.EmailField(max_length=70, blank=True)
+
+  def __str__(self):
+    return '{}, {}'.format(self.name, self.address)
+
 class CAP(models.Model):
   id_cap = models.AutoField(primary_key=True)
   nameC = models.CharField('name', max_length=20, blank=True, null=True)

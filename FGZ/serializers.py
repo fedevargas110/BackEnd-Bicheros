@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from FGZ.models import Animal, Monto, CAP, Donacion
+from FGZ.models import Animal, Monto, CAP, Donacion, Veterinaria
 
 class AnimalSerializer(serializers.ModelSerializer):
   class Meta:
@@ -43,3 +43,8 @@ class DonacionSerializer(serializers.ModelSerializer):
     epico = super().to_representation(instance)
     epico['type_of_donation'] = instance.get_type_of_donation_display()
     return epico  
+
+class VeterinariaSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Veterinaria
+    fields = '__all__'

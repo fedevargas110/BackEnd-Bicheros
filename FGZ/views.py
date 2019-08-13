@@ -1,5 +1,5 @@
-from FGZ.models import Animal, Monto, CAP, Donacion
-from FGZ.serializers import AnimalSerializer, MontoSerializer, CAPSerializer, DonacionSerializer
+from FGZ.models import Animal, Monto, CAP, Donacion, Veterinaria
+from FGZ.serializers import AnimalSerializer, MontoSerializer, CAPSerializer, DonacionSerializer, VeterinariaSerializer
 from rest_framework import viewsets, permissions, status
 from django.shortcuts import redirect
 from rest_framework.decorators import action, api_view
@@ -37,3 +37,9 @@ class DonacionViewSet(viewsets.ModelViewSet):
   
   filter_backends = (filters.SearchFilter,)
   search_fields = ('type_of_donation',)
+
+class VeterinariaViewSet(viewsets.ModelViewSet):
+  permission_classes = (IsAuthenticated,)
+  authentication_classes = (TokenAuthentication, SessionAuthentication)
+  queryset = Veterinaria.objects.all()
+  serializer_class = VeterinariaSerializer

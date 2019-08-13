@@ -22,8 +22,8 @@ DONATION = (
 
 class CAP(models.Model):
   id_cap = models.AutoField(primary_key=True)
-  nameC = models.CharField(max_length=20, blank=True, null=True)
-  last_nameC = models.CharField(max_length=20, blank=True, null=True)
+  nameC = models.CharField('name', max_length=20, blank=True, null=True)
+  last_nameC = models.CharField('last name', max_length=20, blank=True, null=True)
   email = models.EmailField(max_length=70, blank=True)
   date_of_birth = models.DateField(blank=True, null=True)
   address = models.CharField(max_length=120, blank=True, null=True)

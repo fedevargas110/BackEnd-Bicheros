@@ -10,10 +10,14 @@ router = SimpleRouter()
 router.register(r'animals', AnimalViewSet)
 router.register(r'monto', MontoViewSet)
 router.register(r'cap', CAPViewSet)
+router.register(r'donacion', DonacionViewSet)
+router.register(r'veterinaria', VeterinariaViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('auth/', include('rest_auth.urls')),
+    path('registration/', include('rest_auth.registration.urls')),
 ]
 
 if settings.DEBUG:

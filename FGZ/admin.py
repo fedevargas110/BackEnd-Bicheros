@@ -5,3 +5,5 @@ from .models import *
 admin.site.register(Animal)
 admin.site.register(Monto)
 admin.site.register(CAP)
+admin.site.register(Donacion)
+admin.site.register(Veterinaria)

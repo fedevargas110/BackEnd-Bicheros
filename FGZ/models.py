@@ -18,7 +18,7 @@ DONATION = (
   (1, 'comida de perro'),
   (2, 'remedios'),
   (3, 'cadenas'),
-  (4, 'otros',)
+  (4, 'otros'),
 )
 
 class Veterinaria(models.Model):

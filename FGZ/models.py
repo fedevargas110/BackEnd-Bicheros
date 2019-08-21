@@ -19,7 +19,6 @@ DONATION = (
   (2, 'remedios'),
   (3, 'cadenas'),
   (4, 'otros'),
-  
 )
 
 class Veterinaria(models.Model):

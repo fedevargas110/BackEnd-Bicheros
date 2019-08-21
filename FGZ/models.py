@@ -40,13 +40,6 @@ class CAP(models.Model):
   address = models.CharField(max_length=120, blank=True, null=True)
   telefono = models.CharField(max_length=30, blank=True, null=True)
   
-class CAP(models.Model):
-  id_cap = models.AutoField(primary_key=True)
-  nameC = models.CharField(max_length=20)
-  last_nameC = models.CharField(max_length=20)
-  age = models.CharField(max_length=20)
-  address = models.CharField(max_length=120)
-
   def __str__(self):
     return str(self.id_cap) + ' ' + str(self.nameC)
 

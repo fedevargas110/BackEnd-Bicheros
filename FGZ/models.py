@@ -64,6 +64,9 @@ class Photo(models.Model):
   photo = models.ImageField(blank=True, upload_to='img/', null=True)
   animal = models.ForeignKey(Animal, on_delete=models.CASCADE, null=True, blank=True)
 
+  def __str__(self):  
+    return '{}'.format(self.animal)
+
 class Monto(models.Model):
   date = models.DateField(blank=True, null=True)
   amount = models.FloatField(validators=[MaxValueValidator(9999999999)], blank=True, null=True)

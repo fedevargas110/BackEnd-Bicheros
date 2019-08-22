@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from FGZ.models import Animal, Monto, CAP, Donacion, Veterinaria
+from FGZ.models import Animal, Monto, CAP, Donacion, Veterinaria, Photo
 
 class AnimalSerializer(serializers.ModelSerializer):
   class Meta:
@@ -47,4 +47,9 @@ class DonacionSerializer(serializers.ModelSerializer):
 class VeterinariaSerializer(serializers.ModelSerializer):
   class Meta:
     model = Veterinaria
+    fields = '__all__'
+
+class PhotoSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Photo
     fields = '__all__'

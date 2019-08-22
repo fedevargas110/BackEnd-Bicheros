@@ -7,4 +7,5 @@ urlpatterns = [
   path('CAP/', CAPList.as_view(), name='cliente'),
   path('Donacion/', DonacionlList.as_view(), name='donacion'),
   path('Veterinaria/', VeterinariaList.as_view(), name='veterinaria'),
+  path('Photo/', PhotoList.as_view(), name='photo'),
 ]

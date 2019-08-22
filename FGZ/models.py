@@ -50,7 +50,6 @@ class Animal(models.Model):
   race = models.CharField(max_length=20, blank=True, null=True)
   date_founded = models.DateField(blank=True, null=True)
   place_founded = models.CharField(max_length=200, blank=True, null=True)
-  photo = models.ImageField(blank=True, upload_to='img/', null=True)
   species = models.CharField(max_length=120, blank=True, null=True)
   gender = models.PositiveIntegerField(choices=GENDERS, default=0, blank=True, null=True)
   cap = models.ForeignKey(CAP, on_delete=models.CASCADE, null=True, blank=True)
@@ -59,6 +58,10 @@ class Animal(models.Model):
   def __str__(self):  
     return '{}, {}'.format(self.id_animal, self.name)
 
+class Photo(models.Model):
+  id_photo = models.AutoField(primary_key=True)
+  photo = models.ImageField(blank=True, upload_to='img/', null=True)
+  animal = models.ForeignKey(Animal, on_delete=models.CASCADE, null=True, blank=True)
 
 class Monto(models.Model):
   date = models.DateField(blank=True, null=True)

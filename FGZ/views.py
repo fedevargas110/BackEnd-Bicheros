@@ -44,6 +44,9 @@ class VeterinariaViewSet(viewsets.ModelViewSet):
   queryset = Veterinaria.objects.all()
   serializer_class = VeterinariaSerializer
 
+  filter_backends = (filters.SearchFilter,)
+  search_fields = ('name',)
+
 class PhotoViewSet(viewsets.ModelViewSet):
   permission_classes = (IsAuthenticated,)
   authentication_classes = (TokenAuthentication, SessionAuthentication)

@@ -17,7 +17,7 @@ DONATION = (
   (0, 'comida de gato'),
   (1, 'comida de perro'),
   (2, 'remedios'),
-  (3, 'cadenas'),
+  (3, 'collar'),
   (4, 'otros'),
 )
 
@@ -54,6 +54,7 @@ class Animal(models.Model):
   gender = models.PositiveIntegerField(choices=GENDERS, default=0, blank=True, null=True)
   cap = models.ForeignKey(CAP, on_delete=models.CASCADE, null=True, blank=True)
   veterinaria = models.ForeignKey(Veterinaria, on_delete=models.CASCADE, null=True, blank=True)
+  video = models.CharField(max_length=270, blank=True, null=True)
 
   def __str__(self):  
     return '{}, {}'.format(self.id_animal, self.name)

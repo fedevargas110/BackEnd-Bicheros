@@ -57,4 +57,4 @@ class PhotoViewSet(viewsets.ModelViewSet):
   serializer_class = PhotoSerializer
 
   filter_backends = (filters.SearchFilter,)
-  search_fields = ('animal',)
+  search_fields = ('animal__id_animal',)

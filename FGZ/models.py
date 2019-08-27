@@ -47,6 +47,7 @@ class CAP(models.Model):
 class Animal(models.Model):
   id_animal = models.AutoField(primary_key=True)
   name = models.CharField(max_length=20, blank=True, null=True)
+  temperamento = models.CharField(max_length=500, blank=True, null=True)
   race = models.CharField(max_length=20, blank=True, null=True)
   date_founded = models.DateField(blank=True, null=True)
   place_founded = models.CharField(max_length=200, blank=True, null=True)

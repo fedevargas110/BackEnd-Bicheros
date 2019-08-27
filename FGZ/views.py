@@ -29,6 +29,9 @@ class CAPViewSet(viewsets.ModelViewSet):
   queryset = CAP.objects.all()
   serializer_class = CAPSerializer
 
+  filter_backends = (filters.SearchFilter,)
+  search_fields = ('nameC', 'last_nameC')
+
 class DonacionViewSet(viewsets.ModelViewSet):
   permission_classes = (IsAuthenticated,)
   authentication_classes = (TokenAuthentication, SessionAuthentication)

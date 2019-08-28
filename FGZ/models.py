@@ -86,6 +86,7 @@ class Donacion(models.Model):
   description = models.CharField(max_length=240, blank=True, null=True)
   date = models.DateField(blank=True, null=True)
   type_of_donation = models.PositiveIntegerField(choices=DONATION, default=0, blank=True, null=True)
+  cantidad = models.IntegerField(default=1, blank=True, null=False)
 
   def __str__(self):  
     return '{}, {}'.format(self.description, self.date)

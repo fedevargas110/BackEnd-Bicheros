@@ -1,5 +1,5 @@
-from FGZ.models import Animal, Monto, CAP, Donacion, Veterinaria, Photo
-from FGZ.serializers import AnimalSerializer, MontoSerializer, CAPSerializer, DonacionSerializer, VeterinariaSerializer, PhotoSerializer
+from FGZ.models import Animal, Monto, CAP, Donacion, Veterinaria, Photo, HistorialM
+from FGZ.serializers import AnimalSerializer, MontoSerializer, CAPSerializer, DonacionSerializer, VeterinariaSerializer, PhotoSerializer, HistorialMSerializer
 from rest_framework import viewsets, permissions, status
 from django.shortcuts import redirect
 from rest_framework.decorators import action, api_view
@@ -58,3 +58,12 @@ class PhotoViewSet(viewsets.ModelViewSet):
 
   filter_backends = (filters.SearchFilter,)
   search_fields = ('animal__id_animal',)
+
+class HistorialMViewSet(viewsets.ModelViewSet):
+  permission_classes = (IsAuthenticated,)
+  authentication_classes = (TokenAuthentication, SessionAuthentication)
+  queryset = HistorialM.objects.all()
+  serializer_class = HistorialMSerializer
+
+  filter_backends = (filters.SearchFilter,)
+  search_fields = ('id_HM',)

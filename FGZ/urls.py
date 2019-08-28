@@ -8,4 +8,5 @@ urlpatterns = [
   path('Donacion/', DonacionlList.as_view(), name='donacion'),
   path('Veterinaria/', VeterinariaList.as_view(), name='veterinaria'),
   path('Photo/', PhotoList.as_view(), name='photo'),
+  path('HistorialM/', HistorialMList.as_view(), name='historial'),
 ]

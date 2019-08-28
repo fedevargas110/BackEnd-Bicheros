@@ -21,6 +21,11 @@ DONATION = (
   (4, 'otros'),
 )
 
+ESTADO = (
+  (0, 'curado'),
+  (1, 'no curado'),
+)
+
 class Veterinaria(models.Model):
   id_veterinaria = models.AutoField(primary_key=True)
   name = models.CharField(max_length=20, blank=True, null=True)
@@ -84,3 +89,14 @@ class Donacion(models.Model):
 
   def __str__(self):  
     return '{}, {}'.format(self.description, self.date)
+
+class HistorialM(models.Model):
+  id_HM = models.AutoField(primary_key=True)
+  animal = models.ForeignKey(Animal, on_delete=models.CASCADE, null=True, blank=True)
+  enfermedad = models.CharField(max_length=240, blank=True, null=True)
+  fecha = models.DateField(blank=True, null=True)
+  description = models.CharField(max_length=400, blank=True, null=True)
+  estado = models.PositiveIntegerField(choices= ESTADO, default=0, blank=True, null=True)
+
+  def __str__(self):  
+    return '{}, {}'.format(self.animal, self.enfermedad)

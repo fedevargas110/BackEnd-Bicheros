@@ -66,4 +66,4 @@ class HistorialMViewSet(viewsets.ModelViewSet):
   serializer_class = HistorialMSerializer
 
   filter_backends = (filters.SearchFilter,)
-  search_fields = ('id_HM',)
+  search_fields = ('animal__id_animal',)

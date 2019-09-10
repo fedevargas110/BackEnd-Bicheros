@@ -62,6 +62,7 @@ class Animal(models.Model):
   cap = models.ForeignKey(CAP, on_delete=models.CASCADE, null=True, blank=True)
   veterinaria = models.ForeignKey(Veterinaria, on_delete=models.CASCADE, null=True, blank=True)
   video = models.CharField(max_length=270, blank=True, null=True)
+  historia = models.CharField(max_length=500, blank=True, null=True)
 
   def __str__(self):  
     return '{}, {}'.format(self.id_animal, self.name)

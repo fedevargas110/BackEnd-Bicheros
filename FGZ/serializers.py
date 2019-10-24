@@ -8,7 +8,7 @@ class AnimalSerializer(serializers.ModelSerializer):
 
   def to_representation(self, instance):
     ndeah = super().to_representation(instance)
-    ndeah['gender'] = instance.get_gender_display()
+    ndeah['sex'] = instance.get_sex_display()
     return ndeah
 
   def create(self, validated_data):
@@ -26,7 +26,7 @@ class MontoSerializer(serializers.ModelSerializer):
 
   def to_representation(self, instance):
     troll = super().to_representation(instance)
-    troll['tipo'] = instance.get_tipo_display()
+    troll['type'] = instance.get_type_display()
     return troll
 
 class CAPSerializer(serializers.ModelSerializer):

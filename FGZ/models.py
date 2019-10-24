@@ -3,14 +3,14 @@ from django.core.validators import MaxValueValidator
 
 # Create your models here.
 
-GENDERS = (
-  (0, 'Masculino'),
-  (1, 'Femenino'),
+SEX = (
+  (0, 'Male'),
+  (1, 'Female'),
 )
 
-TIPO = (
-  (0, 'Ingreso'),
-  (1, 'Gasto'),
+TYPE = (
+  (0, 'Deposit'),
+  (1, 'Expense'),
 )
 
 DONATION = (
@@ -21,9 +21,9 @@ DONATION = (
   (4, 'otros'),
 )
 
-ESTADO = (
-  (0, 'curado'),
-  (1, 'no curado'),
+STATE = (
+  (0, 'cured'),
+  (1, 'uncured'),
 )
 
 class Veterinaria(models.Model):
@@ -43,7 +43,7 @@ class CAP(models.Model):
   email = models.EmailField(max_length=70, blank=True)
   date_of_birth = models.DateField(blank=True, null=True)
   address = models.CharField(max_length=120, blank=True, null=True)
-  telefono = models.CharField(max_length=30, blank=True, null=True)
+  phone = models.CharField(max_length=30, blank=True, null=True)
   
   def __str__(self):
     return str(self.id_cap) + ' ' + str(self.nameC)
@@ -52,17 +52,17 @@ class CAP(models.Model):
 class Animal(models.Model):
   id_animal = models.AutoField(primary_key=True)
   name = models.CharField(max_length=20, blank=True, null=True)
-  temperamento = models.CharField(max_length=500, blank=True, null=True)
+  temperament = models.CharField(max_length=500, blank=True, null=True)
   race = models.CharField(max_length=20, blank=True, null=True)
   date_of_birth = models.DateField(blank=True, null=True)
   species = models.CharField(max_length=120, blank=True, null=True)
   date_founded = models.DateField(blank=True, null=True)
   place_founded = models.CharField(max_length=200, blank=True, null=True)
-  gender = models.PositiveIntegerField(choices=GENDERS, default=0, blank=True, null=True)
+  sex = models.PositiveIntegerField(choices=SEX, default=0, blank=True, null=True)
   cap = models.ForeignKey(CAP, on_delete=models.CASCADE, null=True, blank=True)
-  veterinaria = models.ForeignKey(Veterinaria, on_delete=models.CASCADE, null=True, blank=True)
+  veterinary = models.ForeignKey(Veterinaria, on_delete=models.CASCADE, null=True, blank=True)
   video = models.CharField(max_length=270, blank=True, null=True)
-  historia = models.CharField(max_length=500, blank=True, null=True)
+  history = models.CharField(max_length=500, blank=True, null=True)
 
   def __str__(self):  
     return '{}, {}'.format(self.id_animal, self.name)
@@ -78,17 +78,17 @@ class Photo(models.Model):
 class Monto(models.Model):
   date = models.DateField(blank=True, null=True)
   amount = models.FloatField(validators=[MaxValueValidator(9999999999)], blank=True, null=True)
-  tipo = models.PositiveIntegerField(choices=TIPO, default=0, blank=True, null=True)
+  type = models.PositiveIntegerField(choices=TYPE, default=0, blank=True, null=True)
   
   def __str__(self):
-    return '{}, {}, {}'.format(self.date, self.amount, self.tipo)
+    return '{}, {}, {}'.format(self.date, self.amount, self.type)
 
 class Donacion(models.Model):
   id_donation = models.AutoField(primary_key=True)
   description = models.CharField(max_length=240, blank=True, null=True)
   date = models.DateField(blank=True, null=True)
   type_of_donation = models.PositiveIntegerField(choices=DONATION, default=0, blank=True, null=True)
-  cantidad = models.IntegerField(default=1, blank=True, null=False)
+  quantity = models.IntegerField(default=1, blank=True, null=False)
 
   def __str__(self):  
     return '{}, {}'.format(self.description, self.date)
@@ -96,10 +96,10 @@ class Donacion(models.Model):
 class HistorialM(models.Model):
   id_HM = models.AutoField(primary_key=True)
   animal = models.ForeignKey(Animal, on_delete=models.CASCADE, null=True, blank=True)
-  enfermedad = models.CharField(max_length=240, blank=True, null=True)
-  fecha = models.DateField(blank=True, null=True)
+  illness = models.CharField(max_length=240, blank=True, null=True)
+  Date = models.DateField(blank=True, null=True)
   description = models.CharField(max_length=400, blank=True, null=True)
-  estado = models.PositiveIntegerField(choices= ESTADO, default=0, blank=True, null=True)
+  state = models.PositiveIntegerField(choices= STATE, default=0, blank=True, null=True)
 
   def __str__(self):  
-    return '{}, {}'.format(self.animal, self.enfermedad)
+    return '{}, {}'.format(self.animal, self.illness)

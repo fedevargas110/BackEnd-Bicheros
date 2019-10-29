@@ -97,7 +97,7 @@ class HistorialM(models.Model):
   id_HM = models.AutoField(primary_key=True)
   animal = models.ForeignKey(Animal, on_delete=models.CASCADE, null=True, blank=True)
   illness = models.CharField(max_length=240, blank=True, null=True)
-  Date = models.DateField(blank=True, null=True)
+  date = models.DateField(blank=True, null=True)
   description = models.CharField(max_length=400, blank=True, null=True)
   state = models.PositiveIntegerField(choices= STATE, default=0, blank=True, null=True)
 

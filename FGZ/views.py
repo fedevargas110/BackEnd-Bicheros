@@ -15,7 +15,7 @@ class AnimalViewSet(viewsets.ModelViewSet):
   serializer_class = AnimalSerializer
   
   filter_backends = (filters.SearchFilter,)
-  search_fields = ('name', 'gender')
+  search_fields = ('name', 'sex')
 
 class MontoViewSet(viewsets.ModelViewSet):
   permission_classes = (IsAuthenticated,)

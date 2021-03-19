@@ -6,7 +6,7 @@ django-allauth==0.39.1
 django-cors-headers==3.0.1
 django-hashers-passlib==0.4
 django-rest-auth==0.9.5
-djangorestframework==3.9.3
+djangorestframework==3.11.2
 idna==2.8
 oauthlib==3.0.2
 passlib==1.7.1
